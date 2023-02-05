@@ -1,0 +1,12 @@
+hackerrank : https://www.hackerrank.com/challenges/population-density-difference/submissions/code/312842542
+
+
+
+
+
+
+
+
+// Solution
+
+SELECT MAX(population)-MIN(population) FROM CITY;

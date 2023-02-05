@@ -1,0 +1,18 @@
+
+
+hackerrank : https://www.hackerrank.com/challenges/revising-the-select-query/submissions/code/312833910
+
+
+
+
+
+
+
+
+// Solution
+
+SELECT *
+FROM CITY
+WHERE
+COUNTRYCODE = 'USA'
+AND POPULATION > 100000;

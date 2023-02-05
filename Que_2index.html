@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function dividePlates(plates, iterations) {
+            let Ai = plates.slice();
+            let Bi = [];
+            let answer = [];
+            let primes = [];
+
+            function isPrime(num) {
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) return false;
+                }
+                return true;
+            }
+
+            for (let i = 2; i <= iterations + 1; i++) {
+                if (isPrime(i)) primes.push(i);
+            }
+
+            for (let i = 0; i < iterations; i++) {
+                Bi = [];
+                for (let j = 0; j < Ai.length; j++) {
+                    if (Ai[j] % primes[i] === 0) {
+                        Bi.unshift(Ai[j]);
+                    } else {
+                        answer.unshift(Ai[j]);
+                    }
+                }
+                Ai = Bi;
+            }
+
+            return answer.concat(Bi.reverse());
+        }
+
+        let plates = [3, 5, 2, 7, 11, 13, 17, 19, 23];
+        let iterations = 3;
+        let result = dividePlates(plates, iterations);
+        console.log(result);
+
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

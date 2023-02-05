@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+
+    <script>
+        function twoStacks(x, a, b) {
+            let sum = 0;
+            let count = 0;
+            let i = 0;
+            let j = 0;
+
+            while (i < a.length && sum + a[i] <= x) {
+                sum += a[i];
+                i++;
+            }
+            count = i;
+
+            while (j < b.length && i >= 0) {
+                sum += b[j];
+                j++;
+                while (sum > x && i > 0) {
+                    i--;
+                    sum -= a[i];
+                }
+                if (sum <= x && i + j > count) {
+                    count = i + j;
+                }
+            }
+
+            return count;
+        }
+
+        let x = 10;
+        let a = [4, 2, 4, 6, 1];
+        let b = [2, 1, 8, 5];
+
+        console.log(twoStacks(x, a, b)); 
+    </script>
+
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

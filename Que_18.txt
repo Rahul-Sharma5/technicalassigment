@@ -1,0 +1,17 @@
+
+hackerrank ulr :  https://www.hackerrank.com/challenges/earnings-of-employees/submissions/code/312844782
+
+
+
+
+
+
+
+
+
+// Solution 
+
+select 
+(select max(months* salary) from employee),
+count(*) from employee
+where (months * salary) = (select max(months* salary) from employee);

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const stack = [];
+        const maxStack = [];
+
+        function push(x) {
+            stack.push(x);
+            if (maxStack.length === 0 || x >= maxStack[maxStack.length - 1]) {
+                maxStack.push(x);
+            }
+        }
+
+        function pop() {
+            if (stack.length === 0) return;
+            const top = stack.pop();
+            if (top === maxStack[maxStack.length - 1]) {
+                maxStack.pop();
+            }
+        }
+
+        function max() {
+            if (maxStack.length === 0) return -1;
+            return maxStack[maxStack.length - 1];
+        }
+
+        // Example usage:
+        push(1);
+        push(2);
+        push(3);
+        console.log(max()); // Output: 3
+        pop();
+        console.log(max()); // Output: 2
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

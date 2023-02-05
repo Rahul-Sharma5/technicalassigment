@@ -1,0 +1,16 @@
+
+hackerrank url: https://www.hackerrank.com/challenges/name-of-employees/submissions/code/312835616
+
+
+
+
+
+
+
+
+
+// Solution
+
+select name
+from Employee
+order by name ASC;

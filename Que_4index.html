@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function minimumMoves(grid, start, goal) {
+            const m = grid.length;
+            const n = grid[0].length;
+            const queue = [];
+            queue.push(start);
+            const visited = Array(m).fill().map(() => Array(n).fill(false));
+            visited[start[0]][start[1]] = true;
+            let moves = 0;
+            while (queue.length > 0) {
+                const size = queue.length;
+                for (let i = 0; i < size; i++) {
+                    const [x, y] = queue.shift();
+                    if (x === goal[0] && y === goal[1]) return moves;
+                    // move up
+                    if (x > 0 && grid[x - 1][y] !== 'X' && !visited[x - 1][y]) {
+                        queue.push([x - 1, y]);
+                        visited[x - 1][y] = true;
+                    }
+                    // move down
+                    if (x < m - 1 && grid[x + 1][y] !== 'X' && !visited[x + 1][y]) {
+                        queue.push([x + 1, y]);
+                        visited[x + 1][y] = true;
+                    }
+                    // move left
+                    if (y > 0 && grid[x][y - 1] !== 'X' && !visited[x][y - 1]) {
+                        queue.push([x, y - 1]);
+                        visited[x][y - 1] = true;
+                    }
+                    // move right
+                    if (y < n - 1 && grid[x][y + 1] !== 'X' && !visited[x][y + 1]) {
+                        queue.push([x, y + 1]);
+                        visited[x][y + 1] = true;
+                    }
+                }
+                moves++;
+            }
+            return -1;
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+hackerrank : https://www.hackerrank.com/challenges/population-density-difference/submissions/code/312842542
+
+
+
+
+
+
+
+// Solution
+
+Select Sum(population)
+from city
+where DISTRICT = 'California';
